@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:theme_switcher/theme_selector_page.dart';
+import 'package:theme_switcher/themes.dart';
 
 class HomePage extends StatelessWidget {
+  final ThemeBloc themeBloc;
+
+  HomePage({Key key, this.themeBloc}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,8 +21,10 @@ class HomePage extends StatelessWidget {
             ),
             tooltip: 'Theme selector',
             onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => ThemeSelectorPage()));
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => ThemeSelectorPage(
+                        themeBloc: themeBloc,
+                      )));
             },
           ),
         ],

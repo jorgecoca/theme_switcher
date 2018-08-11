@@ -5,7 +5,6 @@ import 'package:theme_switcher/themes.dart';
 void main() => runApp(new ThemeSwitcherApp());
 
 class ThemeSwitcherApp extends StatefulWidget {
-
   @override
   _ThemeSwitcherAppState createState() => _ThemeSwitcherAppState();
 }
@@ -28,7 +27,9 @@ class _ThemeSwitcherAppState extends State<ThemeSwitcherApp> {
         return MaterialApp(
           title: 'Theme Switcher',
           theme: snapshot.data,
-          home: HomePage(),
+          home: HomePage(
+            themeBloc: _themeBloc,
+          ),
         );
       },
     );
