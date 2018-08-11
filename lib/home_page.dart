@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:theme_switcher/theme_selector_page.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -15,7 +16,8 @@ class HomePage extends StatelessWidget {
             ),
             tooltip: 'Theme selector',
             onPressed: () {
-              // do nothing for now
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => ThemeSelectorPage()));
             },
           ),
         ],
