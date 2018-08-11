@@ -22,4 +22,14 @@ class ThemeBloc {
   }
 
   const ThemeBloc._(this.themeDataStream, this.selectedTheme);
+
+  DemoTheme initialTheme() {
+    return DemoTheme(
+        'initial',
+        ThemeData(
+          brightness: Brightness.light,
+          accentColor: Colors.brown,
+          primaryColor: Colors.green,
+        ));
+  }
 }
