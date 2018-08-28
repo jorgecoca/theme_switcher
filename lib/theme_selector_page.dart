@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:theme_switcher/themes.dart';
+import 'package:theme_switcher/theme_switcher.dart';
 
 class ThemeSelectorPage extends StatelessWidget {
-  final ThemeBloc themeBloc;
-
-  ThemeSelectorPage({Key key, this.themeBloc}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    final ThemeSwitcher inheritedThemeSwitcher = ThemeSwitcher.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -20,8 +18,8 @@ class ThemeSelectorPage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               RaisedButton(
-                onPressed: () =>
-                    themeBloc.selectedTheme.add(_buildLightTheme()),
+                onPressed: () => inheritedThemeSwitcher.themeBloc.selectedTheme
+                    .add(_buildLightTheme()),
                 child: Text(
                   'Light theme',
                 ),
@@ -29,8 +27,9 @@ class ThemeSelectorPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 8.0),
                 child: RaisedButton(
-                  onPressed: () =>
-                      themeBloc.selectedTheme.add(_buildDarkTheme()),
+                  onPressed: () => inheritedThemeSwitcher
+                      .themeBloc.selectedTheme
+                      .add(_buildDarkTheme()),
                   child: Text(
                     'Dark theme',
                   ),
